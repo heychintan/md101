@@ -1,0 +1,71 @@
+<!-- ══════════════════════════════════════════════════════════
+     DATA PRODUCT MATURITY ASSESSMENT — HTML
+     Drop into Webflow Embed element inside your container.
+     ══════════════════════════════════════════════════════════ -->
+<div id="dpma">
+  <!-- PROGRESS -->
+  <div class="dpma-progress">
+    <span class="dpma-progress-label">Progress</span>
+    <div class="dpma-progress-track"><div class="dpma-progress-fill" id="dpmaFill"></div></div>
+    <span class="dpma-progress-pct" id="dpmaPct">0%</span>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="dpma-questions"></div>
+
+  <!-- RESULTS -->
+  <div id="dpma-results">
+    <div id="dpma-results-inner">
+      <h2 class="dpma-res-title">Your Data Product Maturity <span>Assessment</span></h2>
+      <div class="dpma-res-body">
+        <!-- LEFT: Radar -->
+        <div>
+          <div class="dpma-tabs" id="dpmaTabs"></div>
+          <div class="dpma-radar-wrap"><canvas id="dpmaRadar" width="460" height="420"></canvas></div>
+          <p class="dpma-hint">Toggle dimensions above to focus your analysis.</p>
+          <p class="dpma-hint-sub">The farther from centre, the stronger that dimension.</p>
+        </div>
+        <!-- RIGHT: Breakdown -->
+        <div class="dpma-res-right">
+          <div class="dpma-level-row">
+            <div class="dpma-level-box">
+              <div class="dpma-level-num" id="dpmaLvlNum">LEVEL 2</div>
+              <div class="dpma-level-badge" id="dpmaLvlBadge">Emerging</div>
+            </div>
+            <div class="dpma-donut-wrap">
+              <canvas id="dpmaDonut" width="110" height="110"></canvas>
+              <div class="dpma-donut-pct" id="dpmaDonutPct">20%</div>
+            </div>
+          </div>
+          <div>
+            <div class="dpma-means-title">What this means for your organisation</div>
+            <div class="dpma-means-box"><p id="dpmaMeans">Loading...</p></div>
+          </div>
+          <div>
+            <div class="dpma-bd-title">Dimension breakdown at a glance</div>
+            <div class="dpma-bd-grid">
+              <div class="dpma-bd-card">
+                <div class="dpma-bd-card-title" style="color:var(--md-primary)">Lowest Dimension</div>
+                <div class="dpma-bd-lowest"><span style="font-size:18px">&#9888;&#65039;</span><span id="dpmaLowest">—</span></div>
+              </div>
+              <div class="dpma-bd-card">
+                <div class="dpma-bd-card-title" style="color:var(--md-success)">Your Strengths</div>
+                <ul class="dpma-strengths" id="dpmaStrengths"></ul>
+              </div>
+            </div>
+          </div>
+          <div id="dpmaRecs"></div>
+          <div class="dpma-cta-row">
+            <span>Share or save your results</span>
+            <button class="dpma-cta-btn" onclick="DPMA.copyLink()">&#128279; Copy Link</button>
+            <button class="dpma-cta-btn" onclick="DPMA.downloadPDF()">&#128196; Download PDF</button>
+            <button class="dpma-cta-btn dpma-cta-btn-primary" onclick="DPMA.retake()">&#8634; Retake</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div class="dpma-toast" id="dpmaToast"></div>
